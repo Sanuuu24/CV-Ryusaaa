@@ -34,26 +34,22 @@ const Navbar = () => {
           ))}
         </div>
 
-
-        <button className="md:hidden" onClick={toggleMenu}>
-          {isOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      <div className={`md:hidden absolute top-full left-0 w-full bg-white bg-opacity-90 shadow-lg transition-all duration-300 ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="flex flex-col items-center py-4 space-y-4">
-          {menuItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              className="text-Text hover:text-pink-700 transition-colors"
-              onClick={toggleMenu}
-            >
-              {item.name}
-            </a>
-          ))}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-grey shadow-lg">
+          <div className="flex flex-col items-center py-4 space-y-4">
+            {menuItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="text-Text hover:text-pink-700 transition-colors"
+                onClick={toggleMenu}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
