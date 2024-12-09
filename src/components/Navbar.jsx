@@ -34,8 +34,13 @@ const Navbar = () => {
           ))}
         </div>
 
+        <button className="md:hidden" onClick={toggleMenu}>
+          {isOpen ? <X /> : <Menu />}
+        </button>
+      </div>
+
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-grey shadow-lg">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg"> {/* Change to bg-white */}
           <div className="flex flex-col items-center py-4 space-y-4">
             {menuItems.map((item, index) => (
               <a
