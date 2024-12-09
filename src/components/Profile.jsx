@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Stage } from "@react-three/drei";
 import WebDev from "../models/Webdev";
 import { Github, Linkedin } from "lucide-react";
-import photoprofile from "/public/ibnu,jpg";
+import photoprofile from "/public/ibnu.jpg";
 import { Instagram, Facebook } from "iconsax-react";
 
 const Profile = () => {
