@@ -1,38 +1,72 @@
-import { Card, Dropdown } from "flowbite-react";
 import React from "react";
-import pp from "../assets/ape.jpg";
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
-
-
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF, Stage } from "@react-three/drei";
+import WebDev from "../models/Webdev";
+import { Github, Linkedin } from "lucide-react";
+import { Instagram, Facebook } from "iconsax-react";
 
 const Profile = () => {
   return (
-    <Card className="max-w-full m-3">
-      <div className="flex justify-between px-4 pt-4 flex-wrap me-3">
-        <div className="flex flex-col items-right pb-10">
+    <div className="container pt-20">
+      <section
+        className="flex flex-col lg:flex-row justify-between items-center relative min-h-screen px-10"
+        id="profile"
+      >
+        {/* Bagian Kiri (Profil) */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center items-center">
           <img
-            alt="Bonnie image"
-            height="96"
-            src={pp}
-            width="96"
-            className="mb-3 rounded-full shadow-lg"
-          /> 
-          <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Satria Ibnu Safarudin</h5>
-          <h2 className="mb-1 text-xl font-medium text-gray-700 dark:text-white">Backend-Developer</h2>
-           
-
-        </div>
-          <div inline className="column mt-10">
-              <h5 className="mb-1 text-x1 font-medium text-gray-900 dark:text-white"><FontAwesomeIcon className="me-2" icon={faPhone} />Phone : +62 83829138320</h5>
-              <h5 className="mb-1 text-x1 font-medium text-gray-900 dark:text-white"><FontAwesomeIcon className="me-2" icon={faEnvelope} />Email : satriaibnusaparudin26@gmail.com</h5>
-            <h5 className="mb-1 text-x1 font-medium text-gray-900 dark:text-white"><FontAwesomeIcon className="me-2" icon={faGithub} />Github : https://github.com/Sanuuu24</h5>
+            src="/public/ibnu.jpg"
+            alt="Profile Picture"
+            className="mb-2 rounded-full w-[150px]"
+          />
+          <h1 className="font-extrabold text-2xl text-white mb-2">
+            Satria Ibnu Safarudin
+          </h1>
+          <span className="font-semibold mb-2 text-white">Junior Backend Developer and Game Developer</span>
+          <div className="flex flex-row gap-2.5 mb-2">
+            <a
+              className="p-2 transition hover:bg-black hover:text-white rounded-md"
+              href="https://www.instagram.com/leeyusaaa"
+            >
+              <Instagram />
+            </a>
+            <a
+              className="p-2 transition hover:bg-black hover:text-white rounded-md"
+              href="https://github.com/Sanuuu24"
+            >
+              <Github />
+            </a>
+            <a
+              className="p-2 transition hover:bg-black hover:text-white rounded-md"
+              href="https://www.linkedin.com/in/"
+            >
+              <Linkedin />
+            </a>
+            <a
+              className="p-2 transition hover:bg-black hover:text-white rounded-md"
+              href="https://www.linkedin.com/in/"
+            >
+              <Facebook />
+            </a>
           </div>
-      </div>
-    </Card>
+        </div>
+
+        {/* Bagian Kanan (Model 3D) */}
+        <div className="w-full lg:w-[50%] h-[300px] lg:h-[500px] flex justify-center items-center container">
+          <Canvas>
+            <ambientLight />
+            <Stage>
+              <WebDev />
+            </Stage>
+            <OrbitControls enableZoom={false} autoRotate />
+            <directionalLight position={[8, 7, 9.5]} intensity={1} />
+          </Canvas>
+        </div>
+      </section>
+    </div>
   );
 };
+
+useGLTF.preload("/webdev-transformed.glb");
 
 export default Profile;
