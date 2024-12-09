@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Stage } from "@react-three/drei";
 import WebDev from "../models/Webdev";
 import { Github, Linkedin } from "lucide-react";
+import photoprofile from "/public/ibnu,jpg";
 import { Instagram, Facebook } from "iconsax-react";
 
 const Profile = () => {
@@ -12,10 +13,9 @@ const Profile = () => {
         className="flex flex-col lg:flex-row justify-between items-center relative min-h-screen px-10"
         id="profile"
       >
-        {/* Bagian Kiri (Profil) */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-center">
           <img
-            src="/public/ibnu.jpg"
+            src= {photoprofile}
             alt="Profile Picture"
             className="mb-2 rounded-full w-[150px]"
           />
@@ -51,7 +51,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Bagian Kanan (Model 3D) */}
         <div className="w-full lg:w-[50%] h-[300px] lg:h-[500px] flex justify-center items-center container">
           <Canvas>
             <ambientLight />
