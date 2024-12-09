@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-md">
+    <nav className="fixed top-0 left-0 w-full bg-white/80">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="text-xl font-bold text-black">
           Satria Ibnu Safarudin
@@ -33,16 +33,6 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-
-        <div className="md:hidden">
-          <button 
-            onClick={toggleMenu}
-            className="text-Text focus:outline-none"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
 
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-grey shadow-lg">
